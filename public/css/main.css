@@ -1,3 +1,5 @@
+/*-----Definições de variaveis e formatando tags-----*/
+
 :root {
     --blue: #3DA1DA;
     --orange: #FF9F2E;
@@ -14,6 +16,10 @@
  ::-webkit-scrollbar-thumb {
     background-color: var(--blue);
     border-radius: 10px;
+}
+
+::placeholder {
+    color: var(--gray);
 }
 
 a {
@@ -68,6 +74,8 @@ textarea {
     outline: none !important;
 }
 
+/*----header e menus-----*/
+
 #home {
     width: 100%;
     height: 100vh;
@@ -77,11 +85,12 @@ textarea {
 .header {
     width: 100%;
     height: 8vh;
+    display: flex;
 }
 
 .logo {
     color: #FF9F2E;
-    float: left;
+    flex: 1 1 auto;
     margin: 5px;
     margin-left: 20px;
 }
@@ -106,23 +115,29 @@ textarea {
 
 .menu-container {
     background-color: var(--blue);
-    height: fit-content;
-    width: 35%;
-    height: 80px;
-    float: right;
+    min-width: 560px;     
+    max-width: 60%;
+    height: 100%;
     border-bottom-left-radius: 100px;
 }
 
 .menu {
-    line-height: 80px;
+    line-height: 70px;
     margin-left: 80px;
     font-size: 1.2em;
-    height: fit-content;
+    height: 100%;
+    flex: 1 1 auto;
+}
+
+.menu a:hover {
+    color: var(--gray);
+    transition: .5s ease;
 }
 
 .menu a {
     margin-right: 30px;
     height: 30px;
+    transition: .5s ease;
 }
 
 .redondo {
@@ -139,54 +154,113 @@ textarea {
     flex-direction: column;
 }
 
+/*-----Barra de procura-----*/
+
 .procura {
     height: 60px;
-    width: 80%;
+    width: 80vw;
     background-color: var(--blue);
     border-radius: 50px;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
     margin-top: 10vh;
 }
 
-.laboratorio {
+.input-box {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.input-containers {
     background-color: #fff;
     height: 40px;
     float: left;
     margin: 10px;
-    width: 35%;
-    border-radius: 30px;
-    font-size: 20px;
-    font-family: 'Rowdies', cursive;
-    padding-left: 5%;
-}
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;   
+    border-radius: 30px; 
+} /*propriedades para todos inputs*/
 
- ::placeholder {
+.icon {
     color: var(--gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 100%;
+    font-size: 20px;
+    float: left;
+} /*propriedades para todos os icones*/
+
+.lab-container {    
+    min-width: 360px;
+    flex: 2 1 auto;
 }
 
-.data {
-    background-color: #fff;
-    height: 40px;
-    float: left;
-    margin: 10px;
-    width: 20%;
-    border-radius: 30px;
+.data-container {
+    flex: 1 1 auto;
+    max-width: 300px;
+    min-width: 200px;
+}
+
+.horario-container {   
+    max-width: 300px;
+    min-width: 200px;
+    flex: 1 1 auto;
+}
+
+.i {
+    height: fit-content;
+}
+
+.input-lab {
+    height: 100%;
+    float: right;
+    width: 100%; 
+    background-color: transparent;
     font-size: 20px;
-    padding-left: 5%;
-    position: relative;
     font-family: 'Rowdies', cursive;
 }
 
-.horario {
-    background-color: #fff;
+#input-data {
+    font-size: 20px;
+    font-family: var(--font);
+    color: var(--gray);
+    background-color: transparent;
     height: 40px;
-    float: left;
-    margin: 10px;
-    padding-left: 5%;
-    width: 22%;
-    border-radius: 30px;
+    border: none;
+    cursor: pointer;width: 100%;
+    text-align: center;
+}
+
+.input-horario {
+    background-color: transparent;
     font-size: 20px;
     font-family: 'Rowdies', cursive;
+    width: 100%;
+}
+
+.divisao {
+    height: 30px;
+    width: 2px;
+    margin: 5px 50px 5px 5px;
+    background-color: var(--gray);
+}
+
+
+
+.search-button {
+    width: fit-content;
+    height: 60px;
+    float: left;
+}
+
+.search-button a {
+    width: 100px;
+    height: 100px;
 }
 
 .button {
@@ -194,16 +268,21 @@ textarea {
     height: 40px;
     float: left;
     margin: 10px;
-    margin-right: 0px;
-    width: 2.8%;
+    width: 40px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
 }
 
+.button:hover {
+    opacity: 0.5;
+}
+
 .button i {
     color: #fff;
 }
+
+/*-----Resultado da procura-----*/
 
 .resultado {
     margin: 0 auto;
@@ -241,4 +320,11 @@ textarea {
     padding: 10px;
     color: white;
     background-color: var(--blue);
+    cursor: pointer;
+    
+}
+
+.button-box button:hover {
+    background-color: rgb(64, 197, 64);
+    
 }

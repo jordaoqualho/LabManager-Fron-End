@@ -1,90 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>LabManager</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="https://kit.fontawesome.com/68009b18a3.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.ico">
-</head>
-
-<body>
-    <section id="home">
-        <div class="header">
+<html >
+   <head>
+      <meta charset="UTF-8">
+      <title>LabManager</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="../css/main.css">
+      <script src="https://kit.fontawesome.com/68009b18a3.js" crossorigin="anonymous"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.ico">
+      <link href="../css/datedropper.css" rel="stylesheet"/>           
+        <link href="../css/my-style.css" rel="stylesheet"/>        
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/datedropper.js"></script>  
+        
+   </head>
+   <body>
+      <section id="home">
+         <div class="header">
             <div class="logo">
-                <a href="">
-                    <h1 class="text1">Lab</h1>
-                    <h1 class="text2">Manager</h1>
-                </a>
+               <a href="">
+                  <h1 class="text1">Lab</h1>
+                  <h1 class="text2">Manager</h1>
+               </a>
             </div>
             <div class="menu-container">
-                <div class="menu">
-                    <a href="">Home</a>
-                    <a href="">Minhas Resevas</a>
-                    <a href="">Laboratorios</a>
-                    <a href="">Sair</a>
-                    <a class="redondo" href="">FS
-             </div>
-             </a>
-                </div>
-                </ul>
+               <div class="menu">
+                  <a href="">Home</a>
+                  <a href="">Minhas Resevas</a>
+                  <a href="">Laboratorios</a>
+                  <a href="">Sair</a>
+                  <a class="redondo" href="">FS
+               </div>
+               </a>
             </div>
-        </div>
-        <div class="container">
+            </ul>
+         </div>
+         </div>
+         <div class="container">
             <div class="procura">
-                <input class="laboratorio" type="text" placeholder="Digite o numero do laboratorio">
-                <input class="data" type="text" placeholder="Data">
-                <input class="horario" type="text" placeholder="Entrada">
-                <a href="">
-                    <button class="button" type="text">
-             <i class="fas fa-search"></i>
-             </button>
-                </a>
+               <div class="input-containers lab-container">
+                  <div class="icon">
+                     <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <input class="input-lab" type="text" placeholder="Digite o numero do laboratorio">
+               </div>
+               <div class="input-containers data-container">
+                    <div class="icon">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <input id="input-data" type="text" data-lang="pt" data-large-mode="true" data-large-default="true" data-lock="from" data-translate-mode="true" data-theme="my-style" data-format="d/m/Y" data-max-year="2050" data-min-year="2000"/>
+               </div>
+               <div class="input-containers horario-container">
+                  <div class="icon">
+                     <i class="far fa-clock"></i>
+                  </div>
+                  <input class="input-horario" type="text" placeholder="Horário">
+               </div>
+               <div class="search-button">
+                  <button class="button" type="text">
+                    <i class="fas fa-search"></i>
+                  </button>
+               </div>
             </div>
             <div class="resultado">
-
-                <div class="lab">
-                    <div class="lab-title">
-                        <h1>Laboratório1</h1>
-                        <p>bloco 10
-                            <br> 44 Computadores
-                        </p>
-                    </div>
-                    <div class="button-box">
-                        <button>Reservar</button>
-                    </div>
-                </div>
-                <div class="lab">
-                    <div class="lab-title">
-                        <h1>Laboratório1</h1>
-                        <p>bloco 10
-                            <br> 44 Computadores
-                        </p>
-                    </div>
-                    <div class="button-box">
-                        <button>Reservar</button>
-                    </div>
-                </div>
-                <div class="lab">
-                    <div class="lab-title">
-                        <h1>Laboratório1</h1>
-                        <p>bloco 10
-                            <br> 44 Computadores
-                        </p>
-                    </div>
-                    <div class="button-box">
-                        <button>Reservar</button>
-                    </div>
-
-                </div>
-
+               <div class="lab">
+                  <div class="lab-title">
+                     <h1>Laboratório1</h1>
+                     <p>bloco 10
+                        <br> 44 Computadores
+                     </p>
+                  </div>
+                  <div class="button-box">
+                     <button>Reservar</button>
+                  </div>
+               </div>
+               <div class="lab">
+                  <div class="lab-title">
+                     <h1>Laboratório1</h1>
+                     <p>bloco 10
+                        <br> 44 Computadores
+                     </p>
+                  </div>
+                  <div class="button-box">
+                     <button>Reservar</button>
+                  </div>
+               </div>
+               <div class="lab">
+                  <div class="lab-title">
+                     <h1>Laboratório1</h1>
+                     <p>bloco 10
+                        <br> 44 Computadores
+                     </p>
+                  </div>
+                  <div class="button-box">
+                     <button>Reservar</button>
+                  </div>
+               </div>
             </div>
-
-        </div>
-    </section>
-</body>
-
+         </div>
+      </section>
+      <script>
+        $('#input-data').dateDropper({
+            format: 'd-m-Y'
+        });
+    </script>
+   </body>   
 </html>
