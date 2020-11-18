@@ -7,11 +7,12 @@
       <script src="https://kit.fontawesome.com/68009b18a3.js" crossorigin="anonymous"></script>
       <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
       <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.ico">
-      <link href="../css/datedropper.css" rel="stylesheet"/>           
-        <link href="../css/my-style.css" rel="stylesheet"/>        
-        <script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/datedropper.js"></script>  
-        
+      <link href="../css/datedropper.css" rel="stylesheet"/>
+      <link href="../css/my-style.css" rel="stylesheet"/>
+      <script src="../js/jquery-1.10.2.min.js"></script>
+      <script src="../js/datedropper.js"></script>  
+      <script src="../js/timedropper.js"></script>
+      <link rel="stylesheet" type="text/css" href="../css/timedropper.css">
    </head>
    <body>
       <section id="home">
@@ -44,20 +45,20 @@
                   <input class="input-lab" type="text" placeholder="Digite o numero do laboratorio">
                </div>
                <div class="input-containers data-container">
-                    <div class="icon">
-                        <i class="far fa-calendar-alt"></i>
-                    </div>
-                    <input id="input-data" type="text" data-lang="pt" data-large-mode="true" data-large-default="true" data-lock="from" data-translate-mode="true" data-theme="my-style" data-format="d/m/Y" data-max-year="2050" data-min-year="2000"/>
+                  <div class="icon">
+                     <i class="far fa-calendar-alt"></i>
+                  </div>
+                  <input id="input-data" type="text" data-lang="pt" data-large-mode="true" data-large-default="true" data-lock="from" data-translate-mode="true" data-theme="my-style" data-format="d/m/Y" data-max-year="2050" data-min-year="2000"/>
                </div>
                <div class="input-containers horario-container">
                   <div class="icon">
                      <i class="far fa-clock"></i>
                   </div>
-                  <input class="input-horario" type="text" placeholder="Horário">
+                  <input type="text" id="alarm"/>
                </div>
                <div class="search-button">
                   <button class="button" type="text">
-                    <i class="fas fa-search"></i>
+                  <i class="fas fa-search"></i>
                   </button>
                </div>
             </div>
@@ -99,9 +100,16 @@
          </div>
       </section>
       <script>
-        $('#input-data').dateDropper({
-            format: 'd-m-Y'
-        });
-    </script>
-   </body>   
+         $('#input-data').dateDropper({
+             format: 'd-m-Y'
+         });
+      </script>
+      <script>
+         $( "#alarm" ).timeDropper({
+            primaryColor:'#FF9F2E',
+            textcolor:'#FF9F2E',            
+            borderColor:'#FF9F2E'
+         });
+         </script>
+   </body>
 </html>
