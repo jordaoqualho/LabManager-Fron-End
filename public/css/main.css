@@ -30,7 +30,10 @@ a {
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
+    outline: 0;
 }
 
 html,
@@ -88,7 +91,7 @@ textarea {
     right: 0;
     bottom: 0;
     background-color: white;
-    z-index: 999;
+    z-index: 99999;
 }
 
 .progress {
@@ -202,22 +205,103 @@ textarea {
     flex-direction: column;
 }
 
-/*-----Barra de procura-----*/
-
 @media only screen and (max-width: 1100px) {
-    .procura {
-        height: fit-content !important;
-        width: 80vw;
-        background-color: var(--blue);
-        border-radius: 30px !important;
-        margin: 0 auto;
+    .text1 {
+        font-size: 35px;
+    }
+    
+    .text2 {
+        font-size: 35px;
+    }
+
+    .burger-menu {
+        position: absolute;
+        top: 0.2rem;
+        z-index: 1000;
+        right: 0.5rem;
+        display: flex;
+        height: 50px;
+        width: 50px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all .5s ease-in-out;
+    }
+    
+    .hamburguer {
+        width: 30px;
+        height: 4px;
+        border-radius: 50px;
+        background-color: var(--orange);
+        transition: all .5s ease-in-out;
+    }
+    
+    .hamburguer::before,
+    .hamburguer::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 4px;
+        border-radius: 50px;
+        background-color: var(--orange);
+        transition: all .5s ease-in-out;
+    }
+    
+    .hamburguer::before {
+        transform: translateY(-10px);
+    }
+    
+    .hamburguer::after {
+        transform: translateY(10px);
+    }
+    
+    .burger-menu.open .hamburguer {
+        transform: translateX(50px);
+        background: transparent;
+    }
+    
+    .burger-menu.open .hamburguer::before {
+        transform: rotate(45deg) translate(-35px, 35px);
+    }
+    
+    .burger-menu.open .hamburguer::after {
+        transform: rotate(-45deg) translate(-35px, -35px);
+    }
+
+    .menu-container { 
+        display: none;
+    }
+
+    .menu-mobile {
+        position: fixed;
+        top: 0;
+        right: 0;
+        font-family: var(--font);
+        font-size: 20px;
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
-        margin-top: 10vh;
+        justify-content: space-around;
+        align-items: center;
+        background-color: var(--blue);
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform .5s;
     }   
+    
+    .menu-mobile.ativo {
+        transform: translateX(0);
+    }
+    
+    .links {
+        color: var(--verde);
+        width: fit-content;
+        cursor: pointer;
+    }
+
 }
 
+/*-----Barra de procura-----*/
 .procura {
     height: 60px;
     width: 80vw;
@@ -361,7 +445,7 @@ textarea {
     margin: 0 auto;
     width: 80%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 33%);
+    grid-template-columns: repeat(auto-fit, 420px);
 }
 
 .lab {
@@ -371,11 +455,11 @@ textarea {
     font-family: var(--font);
     display: flex;
     height: 100px;
-    margin: 20px 0 0px 0;
+    margin-top: 20px;
 }
 
 .lab-title {
-    margin: 15px 30px 10px 30px;
+    margin: 15px 25px 10px 30px;
     color: white;
 }
 
@@ -405,4 +489,57 @@ textarea {
 .button-box button:hover {
     background-color: rgb(64, 197, 64);
     
+}
+
+@media only screen and (max-width: 1100px) {
+    .procura {
+        height: fit-content;        
+        border-radius: 30px;        
+        flex-direction: column;
+        flex-wrap: wrap;    
+        min-width: 345px;   
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }   
+    .horario-container {
+        max-width: none;
+        min-width: none;
+    }
+    .lab-container {
+        min-width: 200px;
+    }
+    .input-lab {
+        font-size: 18px;
+    }
+    .data-container {
+        max-width: none;
+        min-width: none;
+    }
+    .search-button {
+        width: 100% ;        
+        float: none ;
+    }
+    .search-button button {
+        width: calc(100% - 20px);
+    }    
+  
+    .resultado {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .lab {
+        width: 340px;
+    }
+    
+    .lab-title {
+        font-size: 14px;
+    }    
+
+    .button-box button {
+        font-size: 22px;
+        padding: 15px 10px 15px 10px;        
+    }    
 }
