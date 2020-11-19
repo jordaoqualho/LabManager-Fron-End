@@ -1,0 +1,8 @@
+class Smartphone():
+  def__init__(self):
+    self.tamanho = 5
+    self.interface = "mobile"
+
+class MP3Player(Smartphone):
+  Smartphone.def__init__(self):
+    

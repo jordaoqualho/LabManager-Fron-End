@@ -1,42 +1,69 @@
+$(window).on('load', function() {
+  $('#preloader .progress').delay(1000).fadeOut();
+  $('#preloader').delay(1000).fadeOut('slow');
+  $('body').delay(1000).css({
+      'overflow': 'visible'
+  });
+})
 
-document.addEventListener("DOMContentLoaded", function() { 
+document.addEventListener("DOMContentLoaded", function() {
   // this function runs when the DOM is ready, i.e. when the document has been parsed  
   const button = document.querySelector('button');
   const input = document.querySelector('.input-lab');
   button.addEventListener('click', () => {
-    getConteudo(input.value);
+      /*-----loadingAnimation on searh click-----*/
+      $('#preloader .progress').fadeIn();
+      $('#preloader').fadeIn().css({
+          'height': '4px'
+      });
+      $('#preloader').delay(500).fadeOut('slow');
+      getConteudo(input.value);
+  })
+  input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+          event.preventDefault();
+          document.querySelector('button').click();
+      }
   })
 });
 
 async function getConteudo(value) {
-    try {
-        const response = await fetch('http://localhost:1234/');
-        const data = await response.json();
-        show(data, value);
-    } catch (error) {
-        console.log(error);
-    }
+  let endereco = `https://lab-manager.herokuapp.com/laboratorio/getByNome/${value}`;
+  if (value == undefined || value == '') {    
+    endereco = "https://lab-manager.herokuapp.com/laboratorios"
+  }
+  try {
+      const response = await fetch(endereco);
+      const data = await response.json();      
+      show(data);
+  } catch (error) {
+      console.log(error);
+  }
 }
 
-function show(users, value) {
-  let output = ''  
-  for (let user of users) { 
-    if (user.name===value) {
-      output += 
-      `<div class="lab">
-      <div class="lab-title">
-         <h1>${user.name}</h1>
-         <p>bloco 10
-            <br> 44 Computadores
-         </p>
-      </div>
-      <div class="button-box">
-         <button>Reservar</button>
-      </div>`;
-    }         
+function show(users) { 
+  if (users.err || users.length == 0) {
+    console.log("entrou");
+    document.querySelector('.resultado').innerHTML = `<h4><br> ${users.err}</h4>`;
+    return;
   }
+  let output = '' 
+  for (let user of users) {            
+    output +=
+      `<div class="lab">
+          <div class="lab-title">
+            <h1>${user.nome}</h1>
+            <p>${user.descricao}
+              <br> 
+              ${user.capacidade} Computadores
+            </p>
+          </div>
+          <div class="button-box">
+            <button>Reservar</button>
+          </div>
+        </div>`;
+  }  
   document.querySelector('.resultado').innerHTML = output;
 }
 
-
-
+getConteudo('');
