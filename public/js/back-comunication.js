@@ -1,22 +1,7 @@
-$(window).on('load', function() {
-  $('#preloader .progress').delay(1000).fadeOut();
-  $('#preloader').delay(1000).fadeOut('slow');
-  $('body').delay(1000).css({
-      'overflow': 'visible'
-  });
-})
-
-
 document.addEventListener("DOMContentLoaded", function() {
-  // this function runs when the DOM is ready, i.e. when the document has been parsed  
   const button = document.querySelector('button');
-  const input = document.querySelector('.input-lab');
-  const menu = document.querySelector('.burger-menu');
-  const sidebar = document.querySelector('.menu-mobile');
-  const sidebarOption = document.querySelector('.menu-mobile');
-  let menuOpen = false;
+  const input = document.querySelector('.input-lab');  
   button.addEventListener('click', () => {
-      /*-----loadingAnimation on searh click-----*/
       $('#preloader .progress').fadeIn();
       $('#preloader').fadeIn().css({
           'height': '4px'
@@ -29,26 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
           event.preventDefault();
           document.querySelector('button').click();
       }
-  })
-
-  menu.addEventListener('click', () => {
-      if (!menuOpen) {
-          menu.classList.add('open');
-          sidebar.classList.add('ativo');
-          menuOpen = true;
-      } else {
-          menu.classList.remove('open');
-          sidebar.classList.remove('ativo');
-          menuOpen = false;
-      }
-  })
-  sidebarOption.addEventListener('click', () => {
-      if (menuOpen) {
-          menu.classList.remove('open');
-          sidebar.classList.remove('ativo');
-          menuOpen = false;
-      }
-  })
+  })  
 });
 
 async function getConteudo(value) {
@@ -83,11 +49,20 @@ function show(users) {
           </p>
         </div>
         <div class="button-box">
-          <button>Reservar</button>
+          <button onclick="openReserva(${user.id})">Reservar</button>
         </div>
       </div>`;
   }
   document.querySelector('.resultado').innerHTML = output;
 }
 
+function openReserva(id){
+  //let endereco = `https://lab-manager.herokuapp.com/laboratorio/${id}`;
+  //const response = await fetch(endereco);
+  console.log(id);
+}
+
 getConteudo('');
+
+
+
