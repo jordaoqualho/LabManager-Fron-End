@@ -1,5 +1,3 @@
-/*-----Definições de variaveis e formatando tags-----*/
-
 :root {
     --blue: #3DA1DA;
     --orange: #FF9F2E;
@@ -18,6 +16,22 @@
     border-radius: 10px;
 }
 
+::-webkit-input-placeholder {
+    color: var(--gray);
+}
+
+::-moz-placeholder {
+    color: var(--gray);
+}
+
+:-ms-input-placeholder {
+    color: var(--gray);
+}
+
+::-ms-input-placeholder {
+    color: var(--gray);
+}
+
 ::placeholder {
     color: var(--gray);
 }
@@ -32,6 +46,7 @@ a {
     padding: 0;
     text-decoration: none;
     list-style: none;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     outline: 0;
 }
@@ -46,6 +61,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     font-family: 'Rowdies', cursive;
 }
@@ -57,9 +74,13 @@ ul {
 
 p {
     display: block;
+    -webkit-margin-before: 1em;
     margin-block-start: 1em;
+    -webkit-margin-after: 1em;
     margin-block-end: 1em;
+    -webkit-margin-start: 0px;
     margin-inline-start: 0px;
+    -webkit-margin-end: 0px;
     margin-inline-end: 0px;
     margin: 0;
     padding: 0;
@@ -83,8 +104,14 @@ textarea {
 
 #preloader {
     position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
     top: 0;
     left: 0;
@@ -102,7 +129,17 @@ textarea {
 .progress-bar {
     background-color: var(--orange);
     height: 100%;
+    -webkit-animation: loading .7s ease-out;
     animation: loading .7s ease-out;
+}
+
+@-webkit-keyframes loading {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
 }
 
 @keyframes loading {
@@ -111,6 +148,15 @@ textarea {
     }
     to {
         width: 100%;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }
 
@@ -135,11 +181,15 @@ textarea {
 .header {
     width: 100%;
     height: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 .logo {
     color: #FF9F2E;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     margin: 5px;
     margin-left: 20px;
@@ -147,6 +197,7 @@ textarea {
 
 .logo a {
     text-decoration: none;
+    -webkit-text-emphasis: none;
     text-emphasis: none;
 }
 
@@ -154,6 +205,8 @@ textarea {
     color: var(--blue);
     font-size: 3rem;
     float: left;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -176,17 +229,23 @@ textarea {
     margin-left: 80px;
     font-size: 1.2em;
     height: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
 }
 
 .menu a:hover {
     color: var(--gray);
+    -webkit-transition: .5s ease;
+    -o-transition: .5s ease;
     transition: .5s ease;
 }
 
 .menu a {
     margin-right: 30px;
     height: 30px;
+    -webkit-transition: .5s ease;
+    -o-transition: .5s ease;
     transition: .5s ease;
 }
 
@@ -200,7 +259,12 @@ textarea {
 .main-container {
     width: 100%;
     height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -216,12 +280,20 @@ textarea {
         top: 0.2rem;
         z-index: 1000;
         right: 0.5rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
         height: 50px;
         width: 50px;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         cursor: pointer;
+        -webkit-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
         transition: all .5s ease-in-out;
     }
     .hamburguer {
@@ -229,6 +301,8 @@ textarea {
         height: 4px;
         border-radius: 50px;
         background-color: var(--orange);
+        -webkit-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
         transition: all .5s ease-in-out;
     }
     .hamburguer::before,
@@ -239,22 +313,34 @@ textarea {
         height: 4px;
         border-radius: 50px;
         background-color: var(--orange);
+        -webkit-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
         transition: all .5s ease-in-out;
     }
     .hamburguer::before {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
         transform: translateY(-10px);
     }
     .hamburguer::after {
+        -webkit-transform: translateY(10px);
+        -ms-transform: translateY(10px);
         transform: translateY(10px);
     }
     .burger-menu.open .hamburguer {
+        -webkit-transform: translateX(50px);
+        -ms-transform: translateX(50px);
         transform: translateX(50px);
         background: transparent;
     }
     .burger-menu.open .hamburguer::before {
+        -webkit-transform: rotate(45deg) translate(-35px, 35px);
+        -ms-transform: rotate(45deg) translate(-35px, 35px);
         transform: rotate(45deg) translate(-35px, 35px);
     }
     .burger-menu.open .hamburguer::after {
+        -webkit-transform: rotate(-45deg) translate(-35px, -35px);
+        -ms-transform: rotate(-45deg) translate(-35px, -35px);
         transform: rotate(-45deg) translate(-35px, -35px);
     }
     .menu-container {
@@ -266,21 +352,39 @@ textarea {
         right: 0;
         font-family: var(--font);
         font-size: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -ms-flex-pack: distribute;
         justify-content: space-around;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         background-color: var(--blue);
         width: 100%;
         height: 100vh;
+        -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
         transform: translateX(-100%);
+        -webkit-transition: -webkit-transform .5s;
+        transition: -webkit-transform .5s;
+        -o-transition: transform .5s;
         transition: transform .5s;
+        transition: transform .5s, -webkit-transform .5s;
     }
     .menu-mobile.ativo {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
         transform: translateX(0);
     }
     .links {
         color: var(--verde);
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
         cursor: pointer;
     }
@@ -295,12 +399,17 @@ textarea {
     background-color: var(--blue);
     border-radius: 50px;
     margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
     margin-top: 10vh;
 }
 
 .input-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 100%;
     width: 100%;
@@ -311,8 +420,14 @@ textarea {
     height: 40px;
     float: left;
     margin: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     border-radius: 30px;
 }
@@ -322,8 +437,14 @@ textarea {
 
 .icon {
     color: var(--gray);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 50px;
     height: 100%;
@@ -336,10 +457,14 @@ textarea {
 
 .lab-container {
     min-width: 360px;
+    -webkit-box-flex: 2;
+    -ms-flex: 2 1 auto;
     flex: 2 1 auto;
 }
 
 .data-container {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     max-width: 300px;
     min-width: 200px;
@@ -348,10 +473,14 @@ textarea {
 .horario-container {
     max-width: 300px;
     min-width: 200px;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
     flex: 1 1 auto;
 }
 
 .i {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
 }
 
@@ -405,6 +534,8 @@ textarea {
 }
 
 .search-button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     height: 60px;
     float: left;
@@ -440,8 +571,13 @@ textarea {
 .resultado {
     margin: 0 auto;
     width: 80%;
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, 500px);
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    justify-items: center;
 }
 
 .lab {
@@ -449,6 +585,8 @@ textarea {
     width: 435px;
     border-radius: 10px;
     font-family: var(--font);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 100px;
     margin-top: 20px;
@@ -464,10 +602,20 @@ textarea {
 }
 
 .button-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
     align-items: flex-end;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
 }
 
@@ -489,9 +637,15 @@ textarea {
 
 @media only screen and (max-width: 1100px) {
     .procura {
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
         height: fit-content;
         border-radius: 30px;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         min-width: 345px;
         margin-top: 5vh;
@@ -520,8 +674,15 @@ textarea {
     }
     .resultado {
         width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
     .lab {
@@ -540,6 +701,8 @@ textarea {
     .button-box button {
         font-size: 22px;
         padding: 15px 10px 15px 10px;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
 }
@@ -551,20 +714,27 @@ textarea {
     background-color: var(--blue);
     position: fixed;
     top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     left: 50%;
     padding: 10px 20px 10px 20px;
     min-width: 350px;
     max-width: 500px;
     width: 80vw;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     color: white;
     border-radius: 30px;
+    -webkit-box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .reserva-header {
     width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     font-size: 25px;
     margin-left: 10px;
@@ -586,13 +756,21 @@ textarea {
 .reserva-header i:hover {
     color: gray;
     cursor: pointer;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
     transition: .3s;
 }
 
 .buttons {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
 }
 
@@ -614,8 +792,15 @@ textarea {
 }
 
 .reserva-inputs {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
     margin: 0;
@@ -623,6 +808,8 @@ textarea {
 }
 
 #input-data2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -646,8 +833,15 @@ textarea {
         font-size: 30px;
     }
     .reserva-inputs {
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
         height: fit-content;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         width: 100%;
         margin: 0;
@@ -684,6 +878,8 @@ textarea {
     display: block;
     width: 200%;
     margin-left: -100%;
+    -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s;
     transition: margin 0.3s ease-in 0s;
 }
 
@@ -699,6 +895,7 @@ textarea {
     color: white;
     font-family: Trebuchet, Arial, sans-serif;
     font-weight: bold;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -728,6 +925,8 @@ textarea {
     right: 122px;
     border: 2px solid #999999;
     border-radius: 20px;
+    -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s;
     transition: all 0.3s ease-in 0s;
 }
 
@@ -745,6 +944,8 @@ textarea {
     right: 2%;
     font-size: 20px;
     height: 22px;
+    -webkit-transition: all 275ms;
+    -o-transition: all 275ms;
     transition: all 275ms;
     ;
 }
@@ -761,6 +962,8 @@ textarea {
     font-family: var(--font);
     color: var(--gray);
     background-color: transparent;
+    -webkit-transition: all 375ms ease-in-out;
+    -o-transition: all 375ms ease-in-out;
     transition: all 375ms ease-in-out;
 }
 
@@ -798,6 +1001,8 @@ textarea {
     padding: 0px;
     margin-bottom: 0px;
     margin-top: 0px;
+    -webkit-transition: all 375ms ease-in-out;
+    -o-transition: all 375ms ease-in-out;
     transition: all 375ms ease-in-out;
 }
 
@@ -809,6 +1014,8 @@ textarea {
     background-color: #F5F5F5;
     list-style-type: none;
     margin: 0px;
+    -webkit-transition: all 275ms ease-in-out;
+    -o-transition: all 275ms ease-in-out;
     transition: all 275ms ease-in-out;
     display: block;
     cursor: pointer;
@@ -822,6 +1029,8 @@ textarea {
 .cont_select_int li:hover {
     background-color: var(--orange);
     color: white;
+    -webkit-transition: .5s ease;
+    -o-transition: .5s ease;
     transition: .5s ease;
 }
 
