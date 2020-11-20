@@ -1,0 +1,151 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>LabManager</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://kit.fontawesome.com/68009b18a3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link href="../css/datedropper.css" rel="stylesheet" />
+    <link href="../css/my-style.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/datedropper.js"></script>
+    <script src="../js/timedropper.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/timedropper.css">
+    <script src="../js/back-comunication.js"></script>
+    <script src="../js/animations.js"></script>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="progress">
+            <div class="progress-bar">
+            </div>
+        </div>
+    </div>
+    <section id="home">
+        <div class="header">
+            <div class="logo">
+                <a href="">
+                    <h1 class="text1">Lab</h1>
+                    <h1 class="text2">Manager</h1>
+                </a>
+            </div>
+            <div class="burger-menu">
+                <div class="hamburguer"></div>
+            </div>
+            <ul class="menu-mobile">
+                <a href="/">
+                    <li class="links">Início</li>
+                </a>
+                <a href="/reservas">
+                    <li class="links">Minhas Resevas</li>
+                </a>
+                <a href="">
+                    <li class="links">Sair</li>
+                </a>
+            </ul>
+            <div class="menu-container">
+                <div class="menu">
+                    <a href="/">Início</a>
+                    <a href="/reservas">Minhas Resevas</a>
+                    <a href="">Sair</a>
+                    <a class="redondo" href="">FS</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="main-container">
+            <div class="procura" style="color: #fff; justify-content: center">
+                <h1 style="font-size: 2rem; margin-top: 10px;">Reservas</h1>
+            </div>
+            <div class="resultado">
+            </div>
+        </div>
+        <section class="reserva">
+
+
+        </section>
+    </section>
+    <script>
+        async function getConteudo() {
+            try {
+                const response = await fetch(`https://lab-manager.herokuapp.com/reservas/`);
+                const data = await response.json();
+                show(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        function show(reservas) {
+            if (reservas.err || reservas.length == 0) {
+                console.log(reservas);
+                document.querySelector(
+                ".resultado"
+                ).innerHTML = `<h4><br> ${reservas.err}</h4>`;
+                return;
+            }
+            let output = "";
+            for (let reserva of reservas) {
+                console.log(reserva)
+                let dia = ""
+                if (!isNaN(reserva.data)) {
+                    dia = getDiaDaSemana(parseInt(reserva.data))
+                } else {
+                    dia = reserva.data
+                }
+
+                output += `<div class="lab">
+                    <div class="lab-title">
+                    <h1>${reserva.laboratorio[0].nome}</h1>
+                    <p>
+                        ${reserva.laboratorio[0].descricao} | ${reserva.laboratorio[0].capacidade} pcs. <br/>
+                        ${dia} às ${reserva.hora}
+                    </p>
+                    </div>
+                    <div class="button-box">
+                    <button onclick="cancelaReserva(${reserva.id})">Cancelar</button>
+                    </div>
+                </div>`;
+            }
+            document.querySelector(".resultado").innerHTML = output;
+        }
+
+        async function cancelaReserva(id) {
+            try {
+                await fetch(`https://lab-manager.herokuapp.com/reserva/${id}`, { method: 'DELETE' });
+                getConteudo();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        
+        function getDiaDaSemana(dia) {
+            switch (dia) {
+                case 0:
+                    return "Todo DOMINGO"
+                case 1:
+                    return "Toda SEGUNDA"
+                case 2:
+                    return "Toda TERÇA"
+                case 3:
+                    return "Toda QUARTA"
+                case 4:
+                    return "Toda QUINTA"
+                case 5:
+                    return "Toda SEXTA"
+                case 6:
+                    return "Todo SÁBADO"
+            }
+        }
+
+        getConteudo();
+    </script>
+
+</body>
+
+</html>
