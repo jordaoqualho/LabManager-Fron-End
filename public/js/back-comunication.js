@@ -1,10 +1,10 @@
-function loading(){
+function loading() {
   $("#preloader .progress").fadeIn();
   $("#preloader").fadeIn().css({
     height: "4px",
   });
   $("#preloader").delay(500).fadeOut("slow");
-};
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector("button");
@@ -86,7 +86,6 @@ async function openReserva(id) {
         <p>${user[0].descricao} / ${user[0].capacidade} computadores</p>
         <i class="far fa-times-circle"></i>
       </div>
-      <section class="reserva"></section>
       <div class="reserva-inputs">                  
         <div class="onoffswitch">
             <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
@@ -159,7 +158,7 @@ async function openReserva(id) {
       <div class="buttons">
         <button>Reservar</button>
       </div>                        
-    </div>     
+    </div>    
   `;
   const exit = document.querySelector(".reserva-header i");
   let reservaOpen = true;
@@ -353,4 +352,3 @@ function _select_option(indx, selc) {
   select_.onchange();
   salir_select(selc);
 }
-

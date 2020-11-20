@@ -441,8 +441,7 @@ textarea {
 	margin: 0 auto;
 	width: 80%;
 	display: grid;
-	justify-content: space-between;
-	grid-template-columns: repeat(auto-fit, 450px);
+	grid-template-columns: repeat(auto-fit, 500px);
 }
 
 .lab {
@@ -467,7 +466,8 @@ textarea {
 .button-box {
 	display: flex;
 	align-items: flex-end;
-	flex-grow: 1;
+    flex-grow: 1;
+    width: fit-content;
 	justify-content: flex-end;
 }
 
@@ -526,22 +526,30 @@ textarea {
 	}
 	.lab {
 		width: 340px;
-	}
-	.lab-title {
-		font-size: 14px;
-	}
+    } 
+    
+    .lab-title {
+        margin: 15px 20px 10px 30px;
+    }
+	.lab-title h1{
+        line-height:2;
+		font-size: 18px;
+    }
+    .lab-title p{
+        font-size: 12px;
+    }
 	.button-box button {
 		font-size: 22px;
-		padding: 15px 10px 15px 10px;
+        padding: 15px 10px 15px 10px;
+        display: flex;	
 	}
 }
-
 
 /*-----Reserva Box-----*/
 
 .reserva-container {
 	background-color: var(--blue);
-	position: absolute;
+	position: fixed;
 	top: 50%;
 	transform: translate(-50%, -50%);
 	left: 50%;
