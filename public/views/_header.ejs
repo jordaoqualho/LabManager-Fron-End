@@ -1,123 +1,122 @@
-<html >
-   <head>
-      <meta charset="UTF-8">
-      <title>LabManager</title>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-      <link rel="stylesheet" href="../css/main.css">
-      <script src="https://kit.fontawesome.com/68009b18a3.js" crossorigin="anonymous"></script>
-      <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon.ico">
-      <link href="../css/datedropper.css" rel="stylesheet"/>
-      <link href="../css/my-style.css" rel="stylesheet"/>
-      <script src="../js/jquery-1.10.2.min.js"></script>
-      <script src="../js/datedropper.js"></script>  
-      <script src="../js/timedropper.js"></script>
-      <link rel="stylesheet" type="text/css" href="../css/timedropper.css">
-      <script src="../js/back-comunication.js"></script>      
-      <script src="../js/animations.js"></script>      
-   </head>
-   <body>
-      <div id="preloader">
-         <div class="progress">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>LabManager</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://kit.fontawesome.com/68009b18a3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link href="../css/datedropper.css" rel="stylesheet" />
+    <link href="../css/my-style.css" rel="stylesheet" />
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/datedropper.js"></script>
+    <script src="../js/timedropper.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/timedropper.css">
+    <script src="../js/back-comunication.js"></script>
+    <script src="../js/animations.js"></script>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="progress">
             <div class="progress-bar">
             </div>
-         </div>
-      </div>
-      <section id="home">
-         <div class="header">
+        </div>
+    </div>
+    <section id="home">
+        <div class="header">
             <div class="logo">
-               <a href="">
-                  <h1 class="text1">Lab</h1>
-                  <h1 class="text2">Manager</h1>
-               </a>
+                <a href="">
+                    <h1 class="text1">Lab</h1>
+                    <h1 class="text2">Manager</h1>
+                </a>
             </div>
             <div class="burger-menu">
-               <div class="hamburguer"></div>
+                <div class="hamburguer"></div>
             </div>
             <ul class="menu-mobile">
-               <a href="">
-                  <li class="links">Início</li>
-               </a>
-               <a href="">
-                  <li class="links">Minhas Resevas</li>
-               </a>
-               <a href="">
-                  <li class="links">Laboratorios</li>
-               </a>
-               <a href="">
-                  <li class="links">Sair</li>
-               </a>
+                <a href="">
+                    <li class="links">Início</li>
+                </a>
+                <a href="">
+                    <li class="links">Minhas Resevas</li>
+                </a>
+                <a href="">
+                    <li class="links">Laboratorios</li>
+                </a>
+                <a href="">
+                    <li class="links">Sair</li>
+                </a>
             </ul>
             <div class="menu-container">
-               <div class="menu">
-                  <a href="">Início</a>
-                  <a href="">Minhas Resevas</a>
-                  <a href="">Laboratorios</a>
-                  <a href="">Sair</a>
-                  <a class="redondo" href="">FS</a>
-               </div>
+                <div class="menu">
+                    <a href="">Início</a>
+                    <a href="">Minhas Resevas</a>
+                    <a href="">Laboratorios</a>
+                    <a href="">Sair</a>
+                    <a class="redondo" href="">FS</a>
+                </div>
             </div>
-         </div>
-         </div>
-         <div class="main-container">
+        </div>
+        </div>
+        <div class="main-container">
             <div class="procura">
-               <div class="input-containers lab-container">
-                  <div class="icon">
-                     <i class="fas fa-map-marker-alt"></i>
-                  </div>
-                  <input class="input-lab" type="text" 
-                     placeholder="Digite o numero do laboratorio"  />
-               </div>
-               <div class="input-containers data-container">
-                  <div class="icon">
-                     <i class="far fa-calendar-alt"></i>
-                  </div>
-                  <input id="input-data" class="input-data" value="0"  
-                     type="text" data-lang="pt" data-large-mode="true" 
-                     data-large-default="true" data-lock="from" 
-                     data-translate-mode="true" data-theme="my-style" 
-                     data-format="d/m/Y" data-max-year="2050" data-min-year="2000"/>
-               </div>
-               <div class="input-containers horario-container">
-                  <div class="icon">
-                     <i class="far fa-clock"></i>
-                  </div>
-                  <input type="text" id="alarm" class="alarm"/>
-               </div>
-               <div class="search-button" >
-                  <button class="button" id="123" type="text" >
+                <div class="input-containers lab-container">
+                    <div class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <input class="input-lab" type="text" placeholder="Digite o numero do laboratorio" />
+                </div>
+                <div class="input-containers data-container">
+                    <div class="icon">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <input id="input-data" class="input-data" value="0" type="text" data-lang="pt" data-large-mode="true" data-large-default="true" data-lock="from" data-translate-mode="true" data-theme="my-style" data-format="d/m/Y" data-max-year="2050" data-min-year="2000"
+                    />
+                </div>
+                <div class="input-containers horario-container">
+                    <div class="icon">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <input type="text" id="alarm" class="alarm" />
+                </div>
+                <div class="search-button">
+                    <button class="button" id="123" type="text">
                   <i class="fas fa-search"></i>
                   </button>
-               </div>
+                </div>
             </div>
-            <div class="resultado"> 
+            <div class="resultado">
             </div>
-         </div>
-         <section class="reserva">
-            
-            
-         </section>         
-      </section>
-      <div class="main"></div>
-      <script>         
-         $('#input-data').dateDropper({
-         format: 'd-m-Y'
-         });
-         $('#input-data2').dateDropper({
-         format: 'd-m-Y'
-         });
-         $( "#alarm" ).timeDropper({
-         primaryColor:'#FF9F2E',
-         textcolor:'#FF9F2E',            
-         borderColor:'#FF9F2E'
-         });         
-         $( "#alarm2" ).timeDropper({
-         primaryColor:'#FF9F2E',
-         textcolor:'#FF9F2E',            
-         borderColor:'#FF9F2E'
-         });                         
-      </script>  
-             
-   </body>
+        </div>
+        <section class="reserva">
+
+
+        </section>
+    </section>
+    <div class="main"></div>
+    <script>
+        $('#input-data').dateDropper({
+            format: 'd-m-Y'
+        });
+        $('#input-data2').dateDropper({
+            format: 'd-m-Y'
+        });
+        $("#alarm").timeDropper({
+            primaryColor: '#FF9F2E',
+            textcolor: '#FF9F2E',
+            borderColor: '#FF9F2E'
+        });
+        $("#alarm2").timeDropper({
+            primaryColor: '#FF9F2E',
+            textcolor: '#FF9F2E',
+            borderColor: '#FF9F2E'
+        });
+    </script>
+
+</body>
+
 </html>
