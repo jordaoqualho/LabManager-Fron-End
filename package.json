@@ -1,21 +1,21 @@
 {
-  "name": "labmanager",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node app"
-  },
-  "author": "Jordão Qualho da Silva",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.0",
-    "cors": "^2.8.5",
-    "ejs": "^3.1.5",
-    "express": "^4.17.1",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.6"
-  }
+    "name": "labmanager",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node app"
+    },
+    "author": "Jordão Qualho da Silva",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.21.0",
+        "cors": "^2.8.5",
+        "ejs": "^3.1.5",
+        "express": "^4.17.1",
+        "path": "^0.12.7"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    }
 }
