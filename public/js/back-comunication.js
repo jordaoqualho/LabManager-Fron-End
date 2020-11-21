@@ -127,7 +127,7 @@ async function openReserva(id) {
     .addEventListener("click", efetuaReserva(user[0].id));
 }
 
-async function efetuaReserva(id) {
+function efetuaReserva(id) {
   let id_laboratorio = id;
   let data = document.querySelector("#date").value;
   let check = document.getElementById("myonoffswitch").checked;
@@ -135,15 +135,21 @@ async function efetuaReserva(id) {
     data = document.getElementById("input-data2");
   }
   let hora = document.querySelector("#select-time").value;
+  let reserva = { id_laboratorio, data, hora }
   try {
-    await fetch(`https://lab-manager.herokuapp.com/reserva`, {
+    fetch(`https://lab-manager.herokuapp.com/reserva`, {
       method: "POST",
-      body: JSON.stringify({ id_laboratorio, data, hora }),
-      headers: { "Content-type": "application/json; charset=UTF-8" },
+      body: JSON.stringify(reserva),
+      headers: { "Accept": "application/json","Content-type": "application/json; charset=UTF-8" },
+    }).then(r => {
+      console.log(r)
+    }).catch(r => {
+      console.log(r)
     });
   } catch (error) {
     console.log(error);
   }
+  console.log("chegou")
 }
 
 getConteudo("");
