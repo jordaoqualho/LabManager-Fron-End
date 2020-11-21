@@ -710,18 +710,10 @@ textarea {
 
 
 /*-----Reserva Box-----*/
-.reserva {
-    visibility: visible;
-}
-
-.reserva.hide {
-    visibility: hidden;
-}
-
 
 .reserva-container {
     background-color: var(--blue);
-    position: fixed;
+    position: absolute;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -976,13 +968,6 @@ textarea {
     transition: all 375ms ease-in-out;
 }
 
-#select-date {
-    display: none;
-}
-
-#select-date.show {
-    display: block;
-}
 
 .select_mate select {
     position: absolute;
@@ -1050,9 +1035,37 @@ textarea {
 
 /* etiqueta <p> con la opcion selecionada  */
 
+#select-date {
+    display: none;
+}
+
+#select-date.show {
+    display: flex;
+}
+
 .selecionado_opcion {
     width: 96%;
     display: block;
     margin: 0px;
     cursor: pointer;
 }
+
+.select-time-container{
+    padding-right: 40px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.select-time {
+    background-color: transparent;
+    border: none;
+    color: var(--gray);
+    font-size: 20px;
+    line-height: 40px;
+    font-family: var(--font);
+}
+
