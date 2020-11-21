@@ -202,7 +202,8 @@ textarea {
 }
 
 .text1 {
-    color: var(--blue);
+    
+    color: var(--orange);
     font-size: 3rem;
     float: left;
     width: -webkit-fit-content;
@@ -211,7 +212,7 @@ textarea {
 }
 
 .text2 {
-    color: var(--orange);
+    color: var(--blue);
     font-size: 3rem;
     float: left;
 }
@@ -709,6 +710,14 @@ textarea {
 
 
 /*-----Reserva Box-----*/
+.reserva {
+    visibility: visible;
+}
+
+.reserva.hide {
+    visibility: hidden;
+}
+
 
 .reserva-container {
     background-color: var(--blue);

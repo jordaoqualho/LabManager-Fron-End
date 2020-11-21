@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://kit.fontawesome.com/68009b18a3.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon.ico">
     <link href="../css/datedropper.css" rel="stylesheet" />
     <link href="../css/my-style.css" rel="stylesheet" />
     <script src="../js/jquery-1.10.2.min.js"></script>
@@ -89,8 +89,85 @@
             </div>
         </div>
         <section class="reserva">
-
-
+         <div class="reserva-container">
+            <div class="reserva-header">      
+               <i class="far fa-times-circle" id="close"></i> 
+    
+              
+            </div>
+            <div class="reserva-inputs">                  
+              <div class="onoffswitch">
+                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0" checked>
+                  <label class="onoffswitch-label" for="myonoffswitch">
+                      <span class="onoffswitch-inner"></span>
+                      <span class="onoffswitch-switch"></span>
+                  </label>
+              </div>            
+              <div class="input-containers data-container"  style="max-width: 100% !important;">
+                  <div class="icon">
+                    <i class="far fa-calendar-alt"></i>
+                  </div>   
+                  <input id="input-data2" class="input-data" value="0"   
+                    type="text" data-lang="pt" data-large-mode="true" 
+                    data-large-default="true" data-lock="from" 
+                    data-translate-mode="true" data-theme="my-style" 
+                    data-format="d/m/Y" data-max-year="2050" data-min-year="2000"/>                 
+                    <div class="select_mate" data-mate-select="active" id="select-date">
+                        <select onclick="return false;" onchange="" onclick="return false;" id="">
+                          <option value="0">Domingo</option>
+                          <option value="1">Segunda</option>
+                          <option value="2">Terça</option>
+                          <option value="3">Quarta</option>
+                          <option value="4">Quinta</option>
+                          <option value="5">Sexta</option>
+                          <option value="6">Sabado</option>                           
+                        </select>
+                        <p class="selecionado_opcion" onclick="open_select(this)"></p>
+                        <span onclick="open_select(this)" class="icon_select_mate">
+                          <svg fill="#FF9F2E" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+                              <path d="M0-.75h24v24H0z" fill="none" />
+                          </svg>
+                        </span>
+                        <div class="cont_list_select_mate">
+                          <ul class="cont_select_int"> </ul>
+                        </div>
+                    </div>
+              </div>
+              <div class="input-containers horario-container" style="max-width: 100% !important;">
+                  <div class="icon">
+                    <i class="far fa-clock"></i>
+                  </div>
+                  <div class="select_mate" data-mate-select="active" >
+                    <select onclick="return false;" onchange="" onclick="return false;" id="select-time">
+                     <option value="0">01:00</option>
+                        <option value="1">02:00</option>
+                        <option value="2">03:00</option>
+                        <option value="3">04:00</option>
+                        <option value="4">05:00</option>
+                        <option value="5">06:00</option>
+                        <option value="6">07:00</option>
+                        <option value="7">08:00</option>
+                        <option value="8">09:00</option>
+                        <option value="9">10:00</option>                        
+                    </select>
+                    <p class="selecionado_opcion" onclick="open_select(this)"></p>
+                    <span onclick="open_select(this)" class="icon_select_mate">
+                        <svg fill="#FF9F2E" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+                          <path d="M0-.75h24v24H0z" fill="none" />
+                        </svg>
+                    </span>
+                    <div class="cont_list_select_mate">
+                        <ul class="cont_select_int"> </ul>
+                    </div>
+                  </div>
+              </div>               
+            </div>            
+            <div class="buttons">
+              <button>Reservar</button>
+            </div>                        
+          </div>
         </section>
     </section>
     <script>
@@ -110,8 +187,13 @@
             textcolor: '#FF9F2E',
             borderColor: '#FF9F2E'
         });
+        const exit = document.querySelector(".reserva-header i");
+        exit.addEventListener("click", () => {            
+               document.querySelector(".reserva").style.display = "none";         
+         });
+         document.querySelector(".reserva").style.display = "none";
+         
     </script>
-
 </body>
 
 </html>
